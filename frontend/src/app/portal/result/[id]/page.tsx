@@ -203,7 +203,7 @@ export default function ResultDetailPage() {
     const errorDetails =
       typeof error === "string"
         ? error
-        : (error as any)?.message ?? (result?.error ?? "Media processing failed.");
+        : (error as any).message ?? "Media processing failed.";
     return (
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center flex-1 flex flex-col items-center justify-center gap-4">
         <AlertCircle className="w-12 h-12 text-rose-500" />
