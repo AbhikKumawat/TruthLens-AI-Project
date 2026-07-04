@@ -1,0 +1,1 @@
+Next.js, Tailwind, FastAPI, PyTorch, OpenCV, FFmpeg, PostgreSQL(optional), Docker, Vercel, Render.

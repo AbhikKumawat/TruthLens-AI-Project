@@ -1,0 +1,1 @@
+Build a production-ready AI Trust Platform with Next.js, FastAPI, PyTorch, OpenCV, Docker. Include website, admin dashboard, REST API, PDF reports, tests and documentation.

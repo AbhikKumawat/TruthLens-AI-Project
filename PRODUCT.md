@@ -1,0 +1,1 @@
+Target users: creators, platforms, moderators. Features: trust score, risk score, explainable AI, reports, batch analysis.
