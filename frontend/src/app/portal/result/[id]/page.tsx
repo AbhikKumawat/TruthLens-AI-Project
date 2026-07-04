@@ -199,8 +199,8 @@ export default function ResultDetailPage() {
     );
   }
 
-  if (error || !result || result.status === "failed") {
-    const errorDetails = error || (result && result.error) || "Media processing failed.";
+  if (error || !result || (result && result.status === "failed")) {
+    const errorDetails = error?.message ?? (result?.error ?? "Media processing failed.");
     return (
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center flex-1 flex flex-col items-center justify-center gap-4">
         <AlertCircle className="w-12 h-12 text-rose-500" />
@@ -217,6 +217,7 @@ export default function ResultDetailPage() {
       </div>
     );
   }
+
 
   // Calculate colors based on trust score
   const isAuthentic = result.prediction === "Authentic";
