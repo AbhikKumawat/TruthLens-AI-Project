@@ -9,17 +9,13 @@ logger = logging.getLogger("truthlens.video_processor")
 class VideoProcessor:
     def __init__(self):
         # Initialize OpenCV Face Cascade Classifier
-        cascade_path = cv2.data.haarcascades + 'haarcascade_frontalface_default.xml'
-        local_path = os.path.join(os.path.dirname(__file__), "..", "models", "haarcascade_frontalface_default.xml")
-        
+        # Use the built‑in Haar cascade that ships with opencv‑python
+        cascade_path = cv2.data.haarcascades + "haarcascade_frontalface_default.xml"
         if os.path.exists(cascade_path):
             self.face_cascade = cv2.CascadeClassifier(cascade_path)
             logger.info("Face Cascade Classifier loaded successfully from cv2 data.")
-        elif os.path.exists(local_path):
-            self.face_cascade = cv2.CascadeClassifier(local_path)
-            logger.info(f"Face Cascade Classifier loaded successfully from local models path: {local_path}")
         else:
-            logger.warning(f"Face Cascade file not found at {cascade_path} or {local_path}. Face detection might fail.")
+            logger.error(f"Cascade file not found at {cascade_path}. Face detection disabled.")
             self.face_cascade = None
 
     def extract_frames(self, video_path: str, max_frames: int = 12) -> List[Dict[str, Any]]:
